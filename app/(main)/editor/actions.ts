@@ -1,4 +1,4 @@
-"Use server";
+"use server";
 
 import prisma from "@/libs/prisma";
 import { resumeSchema, ResumeValues } from "@/libs/validation";
