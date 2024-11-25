@@ -7,14 +7,21 @@ import Footer from "./Footer";
 import { useState } from "react";
 import { ResumeValues } from "@/libs/validation";
 import ResumePreviewSection from "./ResumePreviewSection";
-import { cn } from "@/libs/utils";
+import { cn, mapToResumeValues } from "@/libs/utils";
 import useUnloadWarning from "@/hooks/useUnloadWarnings";
 import useAutoSaveResume from "./useAutoSaveResume";
+import { ResumeServerData } from "@/libs/types";
 
-export default function ResumeEditor() {
+interface ResumeEditorProps {
+  resumeToEdit: ResumeServerData | null;
+}
+
+export default function ResumeEditor({ resumeToEdit }: ResumeEditorProps) {
   const searchParam = useSearchParams();
 
-  const [resumeData, setResumeData] = useState<ResumeValues>({});
+  const [resumeData, setResumeData] = useState<ResumeValues>(
+    resumeToEdit ? mapToResumeValues(resumeToEdit) : {},
+  );
 
   const [showSmResumePreview, setShowSmResumePreview] = useState(false);
 
