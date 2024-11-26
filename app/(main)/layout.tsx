@@ -1,3 +1,4 @@
+import PremiumModal from "@/react/premium/PremiumModal";
 import Navbar from "./Navbar";
 
 export default function MainLayout({
@@ -9,6 +10,7 @@ export default function MainLayout({
     <div className="flex min-h-screen flex-col">
       <Navbar />
       {children}
+      <PremiumModal />
     </div>
   );
 }
